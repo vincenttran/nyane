@@ -23,32 +23,6 @@
 
 
 
-
-// ------------------------------
-//  #Form Body
-// ------------------------------
-
-.legend {
-    display: none;
-}
-
-.label {
-    position: absolute;
-    top: 13px;
-    left: 0;
-    padding-left: 24px;
-    font-family: @font__navigation--font-family;
-    color: @color__navigation--text;
-}
-.form-group {
-    position: relative;
-}
-.textarea--message {
-    min-height: 140px;
-    padding: 22px 20px 10px 140px;
-}
-
-
 // ------------------------------
 //  1.   #Text Inputs
 // ------------------------------
@@ -60,10 +34,9 @@ input[type="password"],
 .input--single-line,
 .input--search,
 textarea {
-    background-color: #fff;
-    padding: 0 20px 0 142px;
+    background-color: transparent;
     border: 0;
-    box-shadow: 0 4px 4px rgba(173, 173, 173, 0.1);
+    box-shadow: inset 0px -1px 0px 0px lighten(@color__p--text, 45%);
     font-size:  @font__p--font-size;
     font-weight: @font__p--font-weight;
     display: inline-block;
@@ -79,7 +52,7 @@ textarea {
 
 
     &:focus {
-        box-shadow: inset 0px -1px 0px 0px @color__primary;
+        box-shadow: inset 0px -1px 0px 0px #e6e6e6;
     }
 
     @media @mobile {
@@ -101,8 +74,11 @@ input[type="password"],
 .input--single-line,
 .input--search,
 .product-filters .input--search {
-    height: 60px;
-    padding: 0 20px 0 142px;
+    height: 44px;
+
+    @media @mobile {
+        height: 44px;
+    }
 }
 
 
@@ -132,16 +108,46 @@ textarea {
 
 
 // ------------------------------
-//  2.   Form Buttons
+//  2.   #Buttons
 // ------------------------------
 
-.button--submit {
-    background-color: @color__secondary;
+
+
+.button {
+    position: relative;
+    border: none;
+    padding: 0 26px;
+    font-size:  @font__button--font-size;
+    line-height: @font__button--line-height;
+    font-weight: @font__button--font-weight;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    text-align: left;
+    -webkit-appearance: none;
+    background-color: @color__button--background;
+    border-radius: 0;
+    color: @color__button--text;
+    text-transform: uppercase;
 
     &:hover {
-        background-color: darken(@color__secondary, 8%);
+        background-color: @color__button--background--hover;
+    }
+
+    @media @mobile {
+        padding: 0 20px;
+        font-size:  bkscale(@font__button--font-size, .9);
+        line-height: bkscale(@font__button--line-height, .8);
+    }
+
+    &:focus {
+        outline: none;
     }
 }
+
 
 
 

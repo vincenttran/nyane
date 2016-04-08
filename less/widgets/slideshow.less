@@ -54,6 +54,7 @@
 
 	// Figure
 	.figure {
+		background-color: transparent;
 		min-height: 0;
 	}
 }
@@ -171,7 +172,7 @@
 
 		&:before {
 			margin: 0;
-			color: #eee;
+			color: #D8D8D8;
 			background-color: transparent;
 		}
 	}
@@ -214,7 +215,7 @@
 		content: '\f104';
 		display: block;
 		margin: 0;
-		color: #eee
+		color: #BFBFBF;
 	}
 }
 
@@ -238,7 +239,7 @@
 		display: block;
 		margin: 0;
 		padding-left: 0.1em;
-		color: #eee
+		color: #BFBFBF;
 	}
 }
 
@@ -293,7 +294,7 @@
 	height: 100%;
 	margin: 0;
 	padding: 30px;
-	background-color: fade(@color__slideshow-caption--background, 70%);
+	background-color: fade(@color__slideshow-caption--background, 50%);
 	text-align: center;
 
 	@media @bp-global-medium {
@@ -309,67 +310,6 @@
 
 }
 
-
-
-
-// Image Title & Description
-// ------------------------------
-
-.responsiveslideshow__image-title,
-.responsiveslideshow__image-description,
-.imagewidget__image-title,
-.imagewidget__image-description {
-	width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-// Image Title
-.responsiveslideshow__image-title,
-.imagewidget__image-title {
-	margin-bottom: 10px;
-	font-family: @font__feature-headline--font-family;
-	font-size: 46px;
-	font-weight: @font__feature-headline--font-weight;
-	line-height: 56px;
-	letter-spacing: 2px;
-	color: @color__slideshow-title--text;
-	text-transform: uppercase;
-
-	@media @bp-global-medium {
-        font-size: 36px;
-        line-height: 46px;
-    }
-    @media @tablet {
-		font-size: 28px;
-        line-height: 32px;
-    }
-    @media @mobile {
-		font-size: 22px;
-        line-height: 20px;
-    }
-}
-
-
-// Image Description
-.responsiveslideshow__image-description,
-.imagewidget__image-description,
-.gallery__image-description {
-	font-size: 14px;
-	font-weight: @font__feature-strapline--font-weight;
-	line-height: 26px;
-	color: @color__slideshow-description--text;
-
-    @media @tablet {
-		font-size: 12px;
-        line-height: 30px;
-    }
-    @media @mobile {
-		font-size: 11px;
-		line-height: 18px;
-    }
-}
 
 
 
