@@ -74,10 +74,16 @@ html, body {
 	// Button
 	.button {
 		border-color: white;
-		color: white;
+		color: @color-swatch4!important;
 		font-size: 12px;
 		margin-top: 10px;
 		text-transform: uppercase;
+		background-color: white;
+		padding: 0px 20px!important;
+		font-weight: 700;
+		&:hover {
+			background-color: darken(white, 10%);
+		}
 	}
 
 	@media @mobile {
