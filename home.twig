@@ -1,0 +1,144 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<!-- Page Content -->
+<section class="page  page--home">
+
+    {% include "includes/hero.twig" %}
+
+    <!-- Zone Content -->
+    <div id="main-scroll" class="main-content">
+        <div class="container">
+
+            <section>
+                <div class="title">
+                    {{widget('content', 'welcometitle', {
+                    content: '<h1>Welcome To Nyane</h1>'
+                    })|raw}}
+                </div>
+                <div class="text">
+                    {{widget('content', 'welcometext', {
+                    content: '<p>Beginning with the main idea of creating the perfect   “edgy”    tees, the label has since evolved into producing full   collections</p>'
+                    })|raw}}
+                </div>
+                <div class="homepageline">
+                    {{widget('line', 'welcomeline', {
+                    'thickness': '1',
+                    'length': '10',
+                    'padding': '10',
+                    'align': 'center'
+                    })|raw}}
+                </div>
+
+            {{widget('blogpostlist', 'allblogposts', {})|raw}}
+
+            </section>
+
+            <section>
+                <div class="title">
+                    {{widget('content', 'instagramtitle', {
+                    content: '<h1>Instagram</h1>'
+                    })|raw}}
+                </div>
+                <div class="text">
+                    {{widget('content', 'instagramtext', {
+                    content: '<p>Beginning with the main idea of creating the perfect   “edgy”    tees, the label has since evolved into producing full   collections</p>'
+                    })|raw}}
+                </div>
+                <div class="homepageline">    
+                    {{widget('line', 'instagramline', {
+                    'thickness': '1',
+                    'length': '10',
+                    'padding': '10',
+                    'align': 'center'
+                    })|raw}}
+                </div>
+            </section>
+
+            <section>
+
+            <!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/560226411b335527b4420f1c69a2f93a.html" id="lightwidget_560226411b" name="lightwidget_560226411b"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+
+            </section>
+
+            <div class="page-container">
+
+            <section class="clearfix">
+
+            {{widget('twitter', 'twitterfeed', {
+            'searchKey': 'cats',
+            'searchType': 'username',
+            'count': '3',
+            'refreshTime': '1800000',
+            'includeRts': '0'
+            })|raw}}
+
+            </section>
+
+            <section>
+                <div class="space title">
+                    {{widget('content', 'twittertitle', {
+                    content: '<h1>Twitter</h1>'
+                    })|raw}}
+                </div>
+                <div class="text">
+                    {{widget('content', 'twittertext', {
+                    content: '<p>Beginning with the main idea of creating the perfect   “edgy”    tees, the label has since evolved into producing full   collections</p>'
+                    })|raw}}
+                </div>
+                <div class="homepageline">    
+                    {{widget('line', 'twitterline', {
+                    'thickness': '1',
+                    'length': '10',
+                    'padding': '10',
+                    'align': 'center'
+                    })|raw}}
+                </div>
+            </section>
+
+            {{zone('main')|raw}}
+
+            </div>
+
+            <section>
+                {{widget('image', 'headerimage', {
+                  'src': asset("images/footer-image.jpg"),
+                  'title': 'The title text',
+                  'description': 'The description text',
+                  'alt': 'The alternate text',
+                  'fileName': 'Logo Image',
+                  'fileSize': 3,
+                  'imageSize': '2500 x 500',
+                  'imageWidth': '2500'
+                })|raw}}
+            </section>
+
+        </div>
+    </div>
+</section>
+
+{% include "includes/footer.twig" %}
+
+{% endblock %}
+
+{% block bodyscripts %}
+
+<script src="{{asset('js/hero.js')}}"></script>
+
+<!-- Smooth Scroll -->
+<script>
+    $(document).ready(function(){
+        $('a[href*=#]').bind('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr("href");
+            $('html, body').stop().animate({ scrollTop: $(target).offset().top}, 1000, function() {
+                location.hash = target;
+            });
+            return false;
+        });
+    });
+</script>
+
+{% endblock %}
+

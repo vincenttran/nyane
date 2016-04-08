@@ -1,0 +1,38 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<section class="page  page--default">
+
+
+    {% include "includes/header.twig" %}
+
+    <div class="row  row--col-half">
+        <div class="col  col--half">
+            {{widget('pagetitle', 'title', {})|raw}}
+        </div>
+        <div class="col  col--half">
+            {{widget('blogsearch', 'blogsearch', {})|raw}}
+        </div>
+    </div>
+
+
+    <!-- Zone Content -->
+    <div class="main-content">
+        <div class="page-container">
+
+        <div class="blogpostlistpage">
+
+            {{zone('main')|raw}}
+
+        </div>
+
+        </div>
+    </div>
+
+</section>
+
+{% include "includes/footer.twig" %}
+
+{% endblock %}
+

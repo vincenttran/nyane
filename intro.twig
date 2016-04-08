@@ -1,0 +1,46 @@
+{% extends "layout.twig" %}
+{% block content %}
+
+<div class="page  page--fullscreen-video">
+	<div class="site-container">
+
+		<!-- Container for video, used to make video 100% of screen height -->
+		<div class="video-container  full">
+
+			<!-- Optional content overlay, these can be hidden in the editor or deleted from this file -->
+			<header class="video-heading">
+
+				<!-- Heading text -->
+        		{{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+
+				<!-- Video button-->
+				{{widget('button', 'feature-button', {
+					'text': 'Enter Site'
+				})|raw}}
+
+				{{widget('profile', 'footer-profile', { 'profileType':'socialicons' })|raw}}
+
+			</header>
+
+			<!-- This is the video -->
+			<a id="bgndVideo" class="player"></a>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<!-- Fullscreen video plugin scripts -->
+	<script src="{{asset('plugins/fullscreen-video/js/fullscreen-video.js')}}"></script>
+
+	<!-- Backstretch plugin for the mobile slideshow -->
+	<script src="{{asset('plugins/fullscreen-video/js/jquery.backstretch.min.js')}}"></script>
+
+	<!-- YouTube player plugin that makes it all work -->
+	<script src="{{asset('plugins/fullscreen-video/js/jquery.mb.YTPlayer.js')}}"></script>
+
+{% endblock %}
+

@@ -1,0 +1,24 @@
+<div class="hero">
+
+    {{widget('feature', 'feature', {
+        'header': 'profile',
+        'strapline': '',
+        'defaultBgImg': asset('images/feature-image.jpg'),
+        'positionTopPercentage': '0',
+        'showBtn': false,
+        'buttonText': 'Lorem Ipsum'
+    })|raw}}
+
+    {% include "includes/header.twig" %}
+
+    <!-- Feature Arrow -->
+    <div class="hero-logo">
+
+        {{widget('companyname', 'companyname', {
+            "business": "profile",
+            "showTplWidget":"0"
+        })|raw}}
+
+    </div>
+
+</div>

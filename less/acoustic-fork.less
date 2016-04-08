@@ -1,0 +1,122 @@
+// -------------------------------------
+// Kings Template: LESS > Fork Variables
+// -------------------------------------
+
+.main-content {
+    @media @tablet {
+        margin-top: 30px;
+    }
+    @media @mobile {
+            margin-top: 90px;
+    }
+}
+
+.template-header {
+    padding: 20px 30px;
+    width: 100%;
+    @media @tablet {
+        padding: 0px 0 20px;
+        background-color: @color-swatch3;
+        border: 0;
+    }
+}
+
+.flex-item {
+    @media @tablet {
+        background-color: @color-swatch3!important;
+        border: 0!important;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .navigation-toggle {
+        top: -20px;
+    }
+    .template-header {
+        padding: 0 0 0 10px;
+    }
+}
+
+.template-header .profile {
+    @media @mobile {
+        padding-left: 0px;
+    }
+}
+
+.feature__content-wrap {
+    position: relative;
+    z-index: 2;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+    -ms-align-items: center;
+}
+
+.widget-profile-header {
+    .map__embed-wrap {
+        width: 300px;
+    }
+}
+
+.feature__content-inner-wrap {
+    max-width: 100%;
+    background-color: black;
+    padding: 10px 0px 20px;
+}
+
+.feature__headline,
+.feature__strapline {
+    max-width: 50%;
+    margin: 10px auto;
+    @media @tablet {
+        max-width: 75%;
+    }
+    @media @mobile {
+        max-width: 100%;
+    }
+}
+
+.feature__content-wrap {
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+}
+
+.hero-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    margin: auto;
+    z-index: 10001;
+    padding: 20px;
+    width: 100%;
+    .flex-display;
+    .flex-direction(column);
+    .justify-content(center);
+}
+
+.feature__content-wrap,
+.feature__background-image,
+.hero {
+    height: 100vh;
+    @media @tablet {
+        height: 700px;
+    }
+    @media @mobile {
+        height: 600px;
+    }
+}
+
+.social-link:before {
+    font-size: 14px;
+}

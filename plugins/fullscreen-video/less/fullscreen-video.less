@@ -1,0 +1,244 @@
+
+// Allows the video container to fit 1005 of the browser height
+html, body {
+	height: 100%;
+}
+.page--fullscreen-video {
+	height: 100%;
+	.site-container {
+		height: 100%;
+	}
+}
+
+
+// This sets the videos height, adjust this number if your header takes up additional space
+.video-container {
+
+	// This gives the video 100% height, alter the second pixel value depending on your header/navigations height
+	height: calc(~"100% - 80px");
+
+	// This is only needed to vertically and horizontally align heading text if available
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	display: flex;
+	align-self: center;
+	flex-direction: column;
+
+	@media @mobile {
+		display: block;
+		position: relative;
+
+		// This gives the video 100% height, alter the second pixel value depending on your header/navigations height
+		height: calc(~"100% - 168px");
+	}
+
+	&.full {
+
+		// Alternate height for page with no header
+		height: 100%;
+	}
+}
+
+
+// This stops mobile slideshow overlapping entire site.
+.backstretch {
+	height: 100%!important;
+	position: absolute!important;
+}
+
+
+// Example styling for content overlay of video
+.video-heading {
+	padding: 30px;
+
+	// Heading
+	h1 {
+		color: white;
+		font-size: 36px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+
+		@media @mobile {
+			font-size: 26px;
+			padding-bottom: 0;
+		}
+	}
+
+	// Subtitle
+	p {
+		color: rgba(255,255,255, 0.65);
+		letter-spacing: 1px;
+	}
+
+	// Button
+	.button {
+		border-color: white;
+		color: white;
+		font-size: 12px;
+		margin-top: 10px;
+		text-transform: uppercase;
+	}
+
+	@media @mobile {
+
+		// Moves video content overlay to the bottom of the slideshow on mobile
+		position: absolute!important;
+		bottom: 30px;
+		left: 20px;
+		right: 20px;
+	}
+}
+
+
+// Makes sure the content and button widget don't wrap inline whole keeping them central
+.video-heading [data-widget-type="content"], 
+.video-heading [data-widget-type="button"] {
+
+	// Changes alignment of heading and button within video
+	text-align: center;
+
+    width: 100%;
+}
+
+
+// Adds overlay to video and slideshow
+.backstretch:after,
+.mbYTP_wrapper:after {
+
+	// Alter this value to change the colour / opacity of the overlay
+	background-color: rgba(0,0,0, 0.3);
+
+	content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0; 
+    bottom: 0;
+	z-index: 100;
+
+	@media @mobile {
+		// Alter this value to change the colour / opacity of the overlay
+		background-color: rgba(0,0,0, 0.4);
+	}
+}
+
+
+// YouTube controls container
+.inlinePlayer {
+
+	// Alter this value to change the colour / opacity of the background
+	background-color: rgba(0,0,0, 0.25);
+
+	color: white;
+	padding: 0;
+	bottom: 0;
+	right: 0;
+
+	// Hides the controls at mobile as the video is not active
+	@media @mobile {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+
+// YouTube control icons
+.mb_YTVP {
+	&Playpause i:after,
+	&Playpause span:after,
+	&MuteUnmute i:after,
+	&MuteUnmute span:after,
+	&Url:after {
+		color: white;
+		line-height: 60px;
+		font-family: FontAwesome;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: normal;
+		text-rendering: geometricPrecision;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	// Play button
+	&Playpause  {
+		background-color: rgba(0,0,0, 0.25);
+		display: inline-block;
+		margin-right: 12px;
+    	height: 60px;
+		width: 75px;
+		text-align: center;
+
+		// Icon
+		i:after {
+			content: "\f04b";
+			font-size: 17px;
+		}
+	}
+
+	// Pause button
+	&Playpause span:after {
+		content: "\f04c";
+		font-size: 17px;
+	}
+
+	// Mute button
+	&MuteUnmute i:after {
+		content: "\f028";
+	}
+
+	// Unmute button
+	&MuteUnmute span:after {
+		content: "\f026";
+	}
+
+	// Hide video timer
+	&Time {
+		display: none;
+	}
+
+	// YouTube icon
+	&Url:after {
+		content: "\f16a";
+	}
+}
+
+// Adds padding to all icons except play / pause
+.mb_YTVPMuteUnmute,
+.mb_YTVPUrl,
+.mb_OnlyYT {
+	padding: 0 10px;
+}
+
+// Fullscreen icon
+.mb_OnlyYT {
+
+	// Adds extra padding to the last icon
+	padding-right: 20px;
+
+	&:after {
+		content: "\f065";
+		font-family: FontAwesome;
+		font-size: 18px;
+		font-weight: normal;
+		text-rendering: geometricPrecision;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
+
+// Overides max-width iframe value that breaks video scaling - no need to change
+.playerBox {
+	max-width: initial;
+}
+
+
+// Error message styling - no need to change
+.noscript-error {
+	position: relative;
+	padding: 20px;
+	background-color: rgba(233,233,233,0.2);
+	margin:0 auto;
+	text-align: center;
+	color: rgba(233,233,233,0.8);
+}
