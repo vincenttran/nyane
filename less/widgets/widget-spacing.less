@@ -8,25 +8,7 @@
 // -----------------------------
 
 .widget--zone-widget {
-    margin: 0;
-}
-
-.main-content .widget {
-    margin: 0 @value__widget--spacing--desktop @value__widget--spacing--desktop;
-
-    @media @bp-global-medium {
-        margin: 0 @value__widget--spacing--laptop @value__widget--spacing--laptop;
-    }
-    @media @tablet {
-        margin: 0 @value__widget--spacing--tablet @value__widget--spacing--tablet;
-    }
-    @media @mobile {
-        margin: 0 @value__widget--spacing--mobile @value__widget--spacing--mobile;
-    }
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+    margin: 0 0 20px;
 }
 
 
@@ -39,7 +21,6 @@
 .main-content {
     .widget[data-name="responsiveslideshow"],
     .widget[data-widget-type="responsiveslideshow"],
-    .widget[data-name="youtube"],
     .widget[data-name="map"],
     .widget[data-name="youtube"],
     .widget[data-name="gallery"],
@@ -52,8 +33,8 @@
     .widget[data-name="ecomfeaturedproducts"],
     .widget[data-name="line"],
     .widget[data-name="menusections"],
-    .widget[data-name="menu"],
-    .widget[data-name="image"] {
+    .widget[data-name="menu"] 
+    {
         margin-top: 0!important; // Ensures correct spacing for default pages
         margin-left: 0;
         margin-right: 0;
