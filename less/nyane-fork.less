@@ -79,6 +79,7 @@ button, .button {
     -o-transition: all ease 0.5s;
     -ms-transition: all ease 0.5s ;
     transition: all ease 0.5s ;
+    background-color: @color-swatch3;
 }
  
 button:hover, .button:hover {
@@ -87,6 +88,7 @@ button:hover, .button:hover {
     -o-transition: all ease 0.7s;
     -ms-transition: all ease 0.7s ;
     transition: all ease 0.5s ;
+    background-color: lighten(@color-swatch3,10%);
 }
 
 .logo {
@@ -464,12 +466,6 @@ button:hover, .button:hover {
     margin-right: 10px;
 }
 
-.button, button {
-    &:hover {
-        background-color: lighten(@color-swatch4,10%);
-    }
-}
-
 .blogpostlistpage {
     .blogpostlist__post-image,
     .blogpostlist__post-content {
@@ -507,4 +503,13 @@ button:hover, .button:hover {
 
 .blogsearch__button {
     padding: 3px 12px;
+}
+
+.blogpost .image-link {
+    margin: 0px auto;
+    display: block;
+}
+
+.post-image .image {
+    height: 100%;
 }
