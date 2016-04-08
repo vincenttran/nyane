@@ -181,7 +181,29 @@ html.nav-open {
 
 
 
+// Selected Navigation Item
+// ------------------------------
 
+
+// Selected Item (not open folder)
+
+.navigation-body .navigation-item.selected:not(.open) > .item-name {
+	color: black;
+}
+
+// Hover
+
+.navigation-body .navigation-item.selected:not(.open):hover > .item-name {
+	box-shadow: none;
+	background-color: black;
+}
+
+// Hover
+
+.navigation-body .navigation-item.selected.folder:not(.open):hover > .item-name {
+	box-shadow: none;
+	background-color: black;
+}
 
 
 
