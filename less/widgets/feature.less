@@ -3,46 +3,19 @@
 // ----------------------------------------
 
 
-
-
-// Hero
-// ------------------------------
-
-.hero {
-    @media @mobile {
-        .flex-display;
-        .flex-direction(column);
-    }
-
-    [data-widget-type="feature"] {
-        .flex-order(2);
-    }
-}
-
-
-
-
 // Background Image
 // ------------------------------
 
-
 .feature__background-image {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-image: image('/images/feature-image.jpg');
+    background-position: bottom center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 800px;
 
     @media @tablet {
         background-attachment: inherit;
         background-position-y: 0!important;
-        min-height: 600px;
-    }
-
-    @media @mobile {
-        min-height: 150px;
     }
 }
 
@@ -58,30 +31,36 @@
     .flex-display;
     .align-items(center);
 
-    height: @value__feature--height--desktop;
+    height: 100vh;
+    min-height: 500px;
     padding: 30px;
     // overflow: auto;
-    background-color: fade(@color__feature-content--background, 70%);
-    overflow: hidden;
+    background-color: fade(@color__feature-content--background, 80%);
 
-    @media @bp-global-medium {
-        height: 800px;
+    @media @bp-1050 {
+        top: 138px;
     }
     @media @tablet {
-        height: @value__feature--height--tablet;
+        top: 61px;
+        height: calc(~"100vh - 176px");
     }
     @media @mobile {
-        height: @value__feature--height--mobile;
+        top: 51px;
+        height: 100vh;
     }
-
 }
 
+
+
+
+// Content Inner Wrap
+// ------------------------------
 
 .feature__content-inner-wrap {
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 760px;
+    max-width: 860px;
     margin: 0 auto;
     text-align: center;
 
@@ -89,29 +68,33 @@
         opacity: 1!important;
         -webkit-transform: translateY(0)!important;
     }
+    @media @mobile {
+        margin-top: -51px;
+    }
 }
 
 
 
 
-// Headline
+// Feature Headline
 // ------------------------------
 
 
-.feature__headline {
+.feature h2 {
     margin: 15px 0;
     padding: 0;
+
+    font-family: @font__feature-headline--font-family;
+    font-size: @font__feature-headline--font-size;
+    font-weight: @font__feature-headline--font-weight;
+    line-height: @font__feature-headline--line-height;
+    letter-spacing: @font__feature-headline--letter-spacing;
     color: @color__feature-headline--text;
     text-transform: uppercase;
 
-    @media @bp-global-medium {
-        margin: 10px 0;
+    @media @bp-1050 {
         font-size: bkscale(@font__feature-headline--font-size, 0.8);
         line-height: bkscale(@font__feature-headline--line-height, 0.8);
-    }
-    @media @tablet {
-        font-size: bkscale(@font__feature-headline--font-size, 0.7);
-        line-height: bkscale(@font__feature-headline--line-height, 0.7);
     }
     @media @mobile {
         margin-top: 0;
@@ -124,17 +107,22 @@
 
 
 
-// Strapline
+// Feature Strapline
 // ------------------------------
 
 
-.feature__strapline {
-    width: 90%;
-    margin: 15px auto;
+.feature h3 {
+    margin: 20px 0;
     padding: 0;
+
+    font-family: @font__feature-strapline--font-family;
+    font-size: @font__feature-strapline--font-size;
+    font-weight: @font__feature-strapline--font-weight;
+    line-height: @font__feature-strapline--line-height;
+    letter-spacing: @font__feature-strapline--letter-spacing;
     color: @color__feature-strapline--text;
 
-    @media @tablet {
+    @media @bp-1050 {
         font-size: bkscale(@font__feature-strapline--font-size, 0.9);
         line-height: bkscale(@font__feature-strapline--line-height, 0.9);
     }
@@ -147,31 +135,58 @@
 
 
 
-// Button
+// Feature Buttons
 // ------------------------------
 
 
-.feature__button {
-    margin: 20px 0 0;
-    border: 2px solid @color__feature-button--border;
-    color: @color__feature-button--text;
-    background-color: @color__feature-button--background;
+.button-wrap {
+    margin-top: 40px;
 
-    @media @bp-global-medium, @bp-global-small {
-        margin-top: 10px;
-    }
     @media @tablet {
-        font-size: bkscale(@font__button--font-size, 0.9);
-        line-height: bkscale(@font__button--line-height, 0.9);
+        margin-top: 26px;
     }
     @media @mobile {
-        font-size: bkscale(@font__button--font-size, 0.8);
-        line-height: bkscale(@font__button--line-height, 0.8);
+        margin-top: 16px;
     }
 
-    &:hover {
-        background-color: @color__feature-button--background--hover;
+    // Button
+    .button {
+        margin: 0 5px;
+        line-height: 58px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+        @media @bp-1050 {
+            line-height: 48px;
+        }
+        @media @mobile {
+            min-width: 70%;
+        }
     }
+
+    // Primary Button
+    .button--primary {
+        .gradient(@color__secondary, lighten(@color__secondary, 8%));
+
+        @media @tablet {
+            margin-bottom: 14px;
+        }
+
+        &:hover {
+            background-color: darken(@color__secondary, 6%);
+        }
+    }
+
+    // Secondary Button
+    .button--secondary {
+        background-color: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: none;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+
 }
 
 
@@ -182,23 +197,15 @@
 
 
 .feature-arrow {
-    position: absolute;
-    top: calc(@value__feature--height--desktop - 100px);
-    z-index: 9999;
-    max-width: @value__container--width;
-    opacity: .6;
+    position: relative;
+    top: 230px;
+    opacity: .5;
 
     @media @bp-global-above-fullwidth {
-        width: 90%;
+        top: 200px;
     }
-    @media @bp-global-below-fullwidth {
-        width: 100%;
-    }
-    @media @bp-global-medium {
-        top: @value__feature--height--tablet;
-    }
-    @media @tablet {
-        top: calc(@value__feature--height--tablet - 100px);
+    @media @bp-1050 {
+        top: 100px;
     }
     @media @mobile {
         display: none;

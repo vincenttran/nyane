@@ -12,6 +12,9 @@
 
 //  #Widget Spacing
 
+//  #Profile
+//  #Content
+
 //  #Forms (General)
 //  #Contact Form
 //  #Sign Up Form
@@ -20,8 +23,6 @@
 //  #Feature
 //  #Gallery
 //  #Slideshow
-
-//  #Profile
 
 //  #Twitter
 //  #Social List
@@ -42,6 +43,8 @@
 
 @import "@{templateLocal}/less/widgets/widget-spacing.less";
 
+@import "@{templateLocal}/less/widgets/profile.less";
+
 @import "@{templateLocal}/less/widgets/forms.less";
 @import "@{templateLocal}/less/widgets/contact-form.less";
 @import "@{templateLocal}/less/widgets/signupform.less";
@@ -50,8 +53,6 @@
 @import "@{templateLocal}/less/widgets/feature.less";
 @import "@{templateLocal}/less/widgets/gallery.less";
 @import "@{templateLocal}/less/widgets/slideshow.less";
-
-@import "@{templateLocal}/less/widgets/profile.less";
 
 @import "@{templateLocal}/less/widgets/twitter.less";
 @import "@{templateLocal}/less/widgets/social-list.less";
@@ -70,8 +71,8 @@
 .logo {
     text-align: center;
 }
-.logo {
-    margin: 10px 0;
+.companyname {
+    margin-top: 10px;
 }
 
 
@@ -201,7 +202,7 @@
     height: 100%;
     margin: 0;
     padding: 30px;
-    background-color: fade(@color__image-caption--background, 50%);
+    background-color: fade(@color__slideshow-caption--background, 70%);
     text-align: center;
 
     @media @bp-global-medium {
@@ -217,62 +218,6 @@
 // Image Title
 .imagewidget .image-title:after {
     margin: 0 auto;
-}
-
-
-
-
-// Image Title & Description
-// ------------------------------
-
-.responsiveslideshow__image-title,
-.responsiveslideshow__image-description,
-.imagewidget__image-title,
-.imagewidget__image-description {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-}
-
-// Image Title
-.responsiveslideshow__image-title,
-.imagewidget__image-title {
-    margin-bottom: 10px;
-        font-size: 36px;
-        line-height: 46px;
-            font-family: @font-swatch4-font-family;
-    @media @tablet {
-        font-size: 28px;
-        line-height: 32px;
-    }
-    @media @mobile {
-        font-size: 22px;
-        line-height: 20px;
-    }
-}
-
-
-// Image Description
-.responsiveslideshow__image-description,
-.imagewidget__image-description,
-.gallery__image-description {
-    font-family: @font__feature-strapline--font-family;
-    font-size: @font__feature-strapline--font-size;
-    font-weight: @font__feature-strapline--font-weight;
-    line-height: @font__feature-strapline--line-height;
-    letter-spacing: @font__feature-strapline--letter-spacing;
-    color: @color__feature-strapline--text;
-
-    @media @tablet {
-        font-size: 12px;
-        line-height: 30px;
-    }
-    @media @mobile {
-        font-size: 11px;
-        line-height: 18px;
-    }
 }
 
 

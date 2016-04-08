@@ -1,10 +1,10 @@
 {
     "name":"Nyane",
     "widgetVersion": 2,
-    "thumbnail":"kings.png",
+    "thumbnail":"thumbnail.png",
+    "screenshot":"screenshot.jpg",
     "templateType":"standard",
-    "pageTypes": [ "intro", "home", "slideshow" ],
-    "screenshot":"kings-screenshot.jpg",
+    "pageTypes": [ "intro", "home", "blogpostlist", "blogpost"],
     "colorSwatches":
     {
         "Swatch 1": {
