@@ -168,7 +168,6 @@ html.nav-open {
 // Item Name
 // ------------------------------
 
-
 .navigation-body .item-name {
 	box-shadow: inset 0px 0px 0px 2px fade(@color__navigation--text, 0%);
 	padding: 1em 20px;
@@ -260,7 +259,7 @@ html.nav-open {
 
 // Open Navigaiton Folder
 .navigation-item.folder.open > .item-name {
-	color: black;
+	color: @color__navigation--text--selected;
 
 	&:after {
 		// Folder icon animation
@@ -317,7 +316,7 @@ html.nav-open {
 
 
 .navigation-list--children .navigation-item.selected .item-name {
-	color: black;
+	color: @color__navigation--text--selected;
 }
 
 

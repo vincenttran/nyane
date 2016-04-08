@@ -3,24 +3,41 @@
 // -------------------------------------
 
 
-.bk-zone {
-    min-height: 80px;
+#tdk-toolbar {
+    display: none!important;
 }
+
+
+// ------------------------------
+// #Table of Contents
+// ------------------------------
+
+//  #Imports
+//  #Global Breakpoints
+//  #Site Styles
+//  #Header / Footer
+//  #Navigation
+
+//  #Page Styles
+//  -- #Home
+
+
 
 
 // -----------------------------
 // #Imports
 // -----------------------------
 
-@import "@{templateCommon}/bk-less-framework-v8.less";  // LESS Framework v8
+@import "@{templateCommon}/bk-less-framework-v8.less";   // LESS Framework v8
 @import "@{templateLocal}/less/fork-variables.less";    // Fork Variables
 @import "@{templateLocal}/less/variables.less";         // Variables
 
 @import "@{templateLocal}/less/typography.less";  // Typography
 @import "@{templateLocal}/less/mixins.less";      // Mixins
-@import "@{templateLocal}/less/theme.less";       // Template
 @import "@{templateLocal}/less/widgets.less";     // Widgets
 @import "@{templateLocal}/less/layout.less";      // Layout
+@import "@{templateLocal}/less/navigation.less";  // Navigation
+@import "@{templateLocal}/less/theme.less";       // Template
 
 @import "@{templateLocal}/less/plugins/plugin-blog.less";       // Plugin: Blog
 @import "@{templateLocal}/less/plugins/plugin-ecommerce.less";  // Plugin: Ecommerce
@@ -30,3 +47,1222 @@
 @import "@{templateLocal}/plugins/fullscreen-video/less/fullscreen-video.less";  // Fullscreen Video
 
 @import "@{templateLocal}/less/nyane-fork.less";    // Fork Variables
+
+
+
+
+// ------------------------------
+// #Global Breakpoints
+// ------------------------------
+
+// Page is contained and centered
+@bp-global-above-fullwidth: ~"only screen and (min-width: 1800px)";
+
+// Page displayed full width
+@bp-global-below-fullwidth: ~"only screen and (max-width: 1800px)";
+
+@bp-global-large: 	~"only screen and (min-width: 1400px)";
+@bp-global-medium: 	~"only screen and (min-width: 770px) and (max-width: 1400px)";
+@bp-global-small: 	~"only screen and (max-width: 769px)";
+@mobile: ~"only screen and (max-width: 650px)";
+
+@bp-1050: ~"only screen and (max-width: 1050px)";
+
+// When specific styles for responsive columns styles are applied
+@bp-global-columns: ~"only screen and (min-width: 478px)";
+
+
+
+// ------------------------------
+// Site Styles
+// ------------------------------
+
+
+// Body
+body {
+    background-color: darken(@color__body--background, 12%);
+}
+
+
+// Site Container
+.site-container {
+    width: 100%;
+    .flex-display;
+    .flex-direction(column);
+    height: 100%;
+    min-height: 100vh;
+    background-color: @color__body--background;
+
+    @media @bp-global-above-fullwidth {
+        max-width: @value__container--width;
+        margin: 0 auto;
+    }
+}
+
+// Container
+.container {
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1014px;
+
+	&--lrg {
+		max-width: 100%;
+
+		.widget {
+			margin: 0;
+		}
+	}
+	&--med {
+		max-width: 1600px;
+	}
+}
+
+
+// Main
+.main-content {
+    position: relative;
+    z-index: 50;
+    background-color: @color__body--background;
+}
+
+
+
+
+// ------------------------------
+// #Header / Footer
+// ------------------------------
+
+.template-header,
+.template-footer {
+    width: 100%;
+
+    // Flex Row
+	.row {
+		.justify-content(space-between);
+        .align-items(center);
+
+        @media @mobile {
+            display: block;
+        }
+	}
+
+	.col {
+		text-align: center;
+		line-height: 0;
+		font-size: 0;
+	}
+}
+
+
+
+
+// #Header
+// ------------------------------
+
+.template-header {
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	width: 100%;
+	max-width: @value__container--width;
+	background-color: @color__header--background;
+	border-bottom: 1px solid @color__site--border;
+	box-shadow: 0 0 16px rgba(110, 110, 110, 0.2);
+	line-height: 0;
+	text-align: center;
+
+	@media @tablet {
+		text-align: inherit;
+	}
+
+	.container {
+		@media @bp-1050 {
+			width: 100%;
+		}
+		@media @tablet {
+			.flex-display;
+			.justify-content(space-between);
+        	.align-items(center);
+			width: 90%;
+		}
+	}
+}
+
+
+
+
+// #Footer
+// ------------------------------
+
+.template-footer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: @color__footer--background;
+
+	.col:first-child {
+		text-align: left;
+	}
+	.col:last-child {
+		text-align: right;
+	}
+
+	@media @bp-1050 {
+		text-align: center;
+
+		.col {
+			.flex-basis(100%);
+		}
+		.col:first-child {
+			display: none;
+		}
+		.col:last-child {
+			margin-top: 20px;
+			text-align: center;
+		}
+	}
+
+	// Mini Navigation
+	.nav-item {
+		margin: 0 20px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	.nav-link {
+		.heading--4;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+    h4,
+    .nav-link {
+    	color: #8d8d8d;
+    }
+}
+
+
+
+
+// Logo
+// ------------------------------
+
+.logo {
+	display: inline-block;
+	width: 180px;
+
+	@media @bp-1050 {
+		margin: 20px 0;
+	}
+	@media @tablet {
+		margin: 0;
+	}
+	@media @mobile {
+		max-width: 150px;
+	}
+}
+
+// Logo Link
+.logo-link {
+	.transition(.6s);
+
+	&:hover {
+		opacity: .4;
+	}
+}
+
+
+
+
+// ------------------------------
+// Page Styles
+// ------------------------------
+
+
+// General Page Styles
+// ------------------------------
+
+.page {
+    .flex(1 1 auto);
+}
+
+
+
+
+// Page Title
+// ------------------------------
+
+.page-title {
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+
+
+	// Default Image
+    &--default {
+		background-image: image('/images/feature-image--about.jpg');
+    }
+
+	// About Image
+    &--about {
+		background-image: image('/images/feature-image--about.jpg');
+    }
+
+    // About Image
+    &--about {
+		background-image: image('/images/feature-image--about.jpg');
+    }
+    // Services Image
+    &--services {
+		background-image: image('/images/feature-image--services.jpg');
+    }
+
+    // Case Studies Image
+    &--case-studies {
+		background-image: image('/images/feature-image--case-studies.jpg');
+    }
+
+    // Careers Image
+    &--careers {
+		background-image: image('/images/feature-image--careers.jpg');
+    }
+
+    // Contact Image
+    &--contact {
+		background-image: image('/images/feature-image--contact.jpg');
+    }
+
+
+    // Typography
+    h1 {
+    	padding-bottom: 0;
+    	font-size: 38px;
+    	color: #fff;
+
+    	@media @tablet {
+    		font-size: 32px;
+    	}
+    	@media @mobile {
+    		font-size: 22px;
+    	}
+
+    	&:after {
+    		display: none;
+    	}
+    }
+
+}
+
+// Page Title Content Wrap
+.page-title-content-wrap {
+	.flex-display;
+    .align-items(center);
+    .justify-content(center);
+	height: 350px;
+	margin-top: 61px;
+	padding: 20px;
+	background-color: fade(@color__feature-content--background, 70%);
+
+	@media @bp-1050 {
+		margin-top: 138px;
+    }
+	@media @tablet {
+		margin-top: 61px;
+		height: 220px;
+    }
+    @media @mobile {
+    	margin-top: 51px;
+		height: 130px;
+    }
+}
+
+
+
+
+// ------------------------------
+// Sections
+// ------------------------------
+
+.section {
+	display: inline-block;
+	width: 100%;
+    text-align: center;
+    padding: @value__widget--spacing--desktop 0;
+
+    @media @bp-global-medium {
+        padding: @value__widget--spacing--laptop 0;
+    }
+    @media @tablet {
+        padding: @value__widget--spacing--tablet 0;
+    }
+    @media @mobile {
+        padding: @value__widget--spacing--mobile 0;
+    }
+
+
+	// Dark BG
+    &--dark {
+    	background-position: center;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+
+    	h1, h3, p {
+    		color: #fff;
+    	}
+    	h3, p {
+    		opacity: .8;
+    	}
+    	p {
+    		font-size: 16px;
+    		line-height: 32px;
+    	}
+    }
+
+    // Dark Text
+	&--dark-text {
+		background-color: @color__grey--dark;
+
+		h2, h4, h5 {
+			color: #fff;
+		}
+		h3, p {
+			color: #C9C9C9;
+		}
+	}
+
+    // Grey BG
+    &--grey {
+		background-color: @color__grey;
+    }
+
+
+	// Section Content Wrap
+    .section-content-wrap {
+    	margin: 0 auto;
+    }
+
+}
+
+
+
+
+// ------------------------------
+// Global Sections
+// ------------------------------
+
+
+
+
+// Global Section: Contact
+// ------------------------------
+
+.section--contact {
+	text-align: left;
+
+	@media @tablet {
+		text-align: center;
+	}
+
+	.section-content-wrap {
+		.flex-display;
+	    .justify-content(space-between);
+	    width: 90%;
+	    max-width: 1024px;
+	    margin: 0 auto;
+
+	    @media @tablet {
+	    	max-width: 90%;
+	    	margin: 0 auto;
+	    	text-align: center;
+	    }
+	}
+
+	.contact-p {
+		padding-bottom: 0;
+	}
+
+	.widget {
+		margin: 0;
+	}
+
+	.form {
+		max-width: 600px;
+		margin-left: auto;
+
+		@media @tablet {
+			margin: 40px auto 0;
+		}
+	}
+}
+
+
+
+
+// Global Section: CTA Row
+// ------------------------------
+
+.cta-row {
+	position: relative;
+    margin-top: @value__widget--spacing--desktop;
+
+    @media @bp-global-medium {
+        margin-top: @value__widget--spacing--laptop;
+    }
+    @media @tablet {
+        margin-top: @value__widget--spacing--tablet;
+    }
+    @media @mobile {
+        margin-top: @value__widget--spacing--mobile;
+    }
+
+	&:before {
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    bottom: 23px;
+	    display: inline-block;
+	    margin: 0 auto;
+	    max-width: 690px;
+	    height: 2px;
+	    background-color: @color__site--border;
+	    content: "";
+	}
+}
+
+
+
+
+// ------------------------------
+// Home Page Styles
+// ------------------------------
+
+
+// Section: About FDM
+// ------------------------------
+
+.section--about [data-widget-type="image"] {
+	height: 48px;
+}
+
+.row--col-3 {
+	[data-widget-type="image"] {
+	    margin: 0 0 20px 0 !important;
+
+	    @media @bp-1050 {
+	        margin-bottom: 10px !important;
+	        transform: scale(.8);
+	    }
+	}
+
+	.col--third {
+		@media @mobile {
+			margin-bottom: @value__widget--spacing--mobile;
+		}
+
+		&:last-child {
+			@media @bp-1050 {
+				.flex-basis(70%);
+				margin: 30px auto 0;
+			}
+			@media @mobile {
+				.flex-basis(100%);
+				margin: 0;
+			}
+		}
+	}
+}
+
+
+// Section: Services
+// ------------------------------
+
+.section--services {
+	background-image: image('/images/services-section-bg.jpg');
+
+	// Section Content Wrap
+    .section-content-wrap {
+    	max-width: 830px;
+    	margin: 0 auto;
+    }
+
+    // Service List
+    .service-short-list {
+    	.flex-display;
+    	.justify-content(space-around);
+    	max-width: 690px;
+    	margin: 0 auto;
+    	padding: 50px 40px 70px;
+    	border: 3px solid rgba(255, 255, 255, 0.1);
+    	text-align: left;
+
+    	@media @tablet {
+    		max-width: 620px;
+    	}
+    	@media @mobile {
+    		display: block;
+    		border: 0;
+    		padding: 0 0 60px 60px;
+    	}
+
+    	.widget:first-child {
+			margin: 0;
+		}
+    }
+
+    // Service List Item
+    .service-short-list-item {
+    	display: inline-block;
+
+    	@media @mobile {
+    		margin-bottom: 10px;
+    	}
+
+		h3 {
+			font-size: 19px;
+			opacity: 1;
+
+			@media @tablet {
+				font-size: 17px;
+			}
+
+			&:before {
+				display: inline-block;
+				margin-right: 20px;
+				width: 8px;
+				height: 8px;
+				content: "";
+				.border-radius(50%);
+				border: 2px solid @color__primary;
+			}
+		}
+    }
+
+    // CTA Button
+    [data-widget-type="button"] {
+    	margin-top: -27px;
+    	margin-bottom: 97px;
+    }
+}
+
+
+
+
+// Section: Clients
+// ------------------------------
+
+.section--clients .service-blocks-title {
+	margin-bottom: @value__widget--spacing--desktop;
+
+    @media @bp-global-medium {
+        margin-bottom: @value__widget--spacing--laptop;
+    }
+    @media @tablet {
+        margin-bottom: @value__widget--spacing--tablet;
+    }
+    @media @mobile {
+        margin-bottom: @value__widget--spacing--mobile;
+    }
+}
+
+// Client Logos
+.main-content .client-logos {
+	.row--col-3 {
+		.align-items(center);
+
+		&:first-child {
+			margin-bottom: 30px;
+
+			@media @tablet {
+				margin-bottom: 40px;
+			}
+			@media @mobile {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	[data-widget-type="image"] {
+		margin: 0!important;
+
+		@media @mobile {
+			transform: scale(.8);
+		}
+	}
+}
+
+// Boxed Content
+.boxed-content {
+	position: relative;
+	margin: 80px auto 0;
+	padding: 50px;
+	border: 3px solid @color__site--border;
+
+    @media @bp-global-medium {
+        margin-top: 80px;
+    }
+    @media @bp-1050 {
+        margin: 60px auto 0;
+    }
+    @media @tablet {
+    	width: 90%;
+        margin: 60px auto 0;
+        padding: 40px;
+    }
+    @media @mobile {
+        margin-top: 60px;
+		padding: 30px 20px 20px;
+    }
+
+
+    &:before {
+    	position: absolute;
+    	top: -4px;
+    	left: 0;
+    	right: 0;
+		display: inline-block;
+		width: 80px;
+		margin: 0 auto;
+		padding: 0 60px 0 25px;
+		background-color: #fff;
+		font-family: @font__h1--font-family;
+		font-size: 110px;
+		line-height: 50px;
+		color: @color__primary;
+    }
+
+    .widget {
+    	margin: 0;
+    }
+
+    h2 {
+    	line-height: 32px;
+
+    	@media @mobile {
+	    	padding-bottom: 20px;
+	    }
+
+    	&:after {
+			display: block;
+			width: 26px;
+			margin: 0 auto;
+			padding-bottom: 15px;
+			border-bottom: 2px solid @color__primary;
+			content: "";
+		}
+    }
+
+	// Clients
+	&--clients {
+		padding: 60px 50px 50px;
+
+		@media @tablet {
+	        padding: 50px 40px 40px;
+		}
+		@media @mobile {
+			padding: 40px 20px 30px;
+		}
+
+		// Quote Mark
+		&:before {
+			content: "“";
+		}
+
+		h3 {
+			font-size: 19px;
+			line-height: 38px;
+
+			@media @mobile {
+		    	font-size: 15px;
+				line-height: 32px;
+		    }
+		}
+    }
+
+    // Services
+	&--services {
+		max-width: 650px;
+
+		&:before {
+			content: "";
+		    top: -26px;
+		    height: 50px;
+			background-image: image('/images/icon--about.png');
+			background-position: center;
+		    background-size: 59px;
+		    background-repeat: no-repeat;
+		    text-align: center;
+		}
+
+		.widget {
+			margin-bottom: 30px;
+		}
+    }
+
+}
+
+
+
+
+// ------------------------------
+// About FDM Page
+// ------------------------------
+
+
+.main-content .about-blocks {
+
+	.section {
+		padding-top: 0;
+	}
+
+	[data-widget-type="image"] {
+		margin-bottom: 30px;
+
+		@media @tablet {
+			margin-bottom: 20px;
+		}
+	}
+
+	[data-widget-type="content"] {
+		margin-left: 50px;
+		margin-right: 50px;
+
+		@media @mobile {
+			margin-bottom: @value__widget--spacing--mobile;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	h2:after {
+		display: block;
+		width: 26px;
+		margin: 0 auto;
+		padding-bottom: 15px;
+		border-bottom: 2px solid @color__primary;
+		content: "";
+    }
+
+    .col:last-child {
+		@media @bp-1050 {
+			.flex-basis(70%);
+			margin: 50px auto 0;
+
+			[data-widget-type="image"] {
+				max-width: 304px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		@media @mobile {
+			.flex-basis(100%);
+			margin: 0;
+		}
+	}
+
+}
+
+
+// Section: Who We Are
+// ------------------------------
+
+.who-we-are {
+	margin-top: @value__widget--spacing--desktop;
+
+    @media @bp-global-medium {
+        margin-top: @value__widget--spacing--laptop;
+    }
+    @media @tablet {
+        margin-top: @value__widget--spacing--tablet;
+    }
+    @media @mobile {
+        margin-top: @value__widget--spacing--mobile;
+    }
+}
+
+
+
+
+// Section: Founders
+// ------------------------------
+
+.founders {
+	[data-widget-type="image"] {
+		margin-bottom: 0!important
+	}
+
+	.dual-blocks .col h5 {
+		padding-bottom: 20px;
+		font-size: 26px;
+	}
+}
+
+
+
+
+// Section: Hiring
+// ------------------------------
+
+.section--hiring {
+	padding: 50px 0;
+	background-image: image('/images/hiring-section-bg.jpg');
+	background-size: cover;
+	background-position: center;
+	text-align: left;
+
+	.container {
+		.flex-display;
+		.justify-content(space-between);
+		.align-items(center);
+
+		@media @bp-1050 {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	h2 {
+		padding-bottom: 10px;
+		font-size: 28px;
+		line-height: 42px;
+		color: #fff;
+
+		@media @tablet {
+			font-size: 24px;
+			line-height: 32px;
+		}
+	}
+
+	p {
+		opacity: 0.7;
+		color: #fff;
+	}
+
+	.button {
+		font-size: 16px;
+	    padding: 0 32px;
+	    line-height: 60px;
+
+	    @media @bp-1050 {
+	    	margin-top: 30px;
+			.button;
+		}
+	}
+}
+
+
+
+
+// ------------------------------
+// Services Page
+// ------------------------------
+
+
+.service-blocks-title {
+	margin-top: -10px;
+	padding: 16px 0;
+	border-top: 1px solid @color__site--border;
+	border-bottom: 1px solid @color__site--border;
+	text-align: center;
+
+	@media @bp-global-medium {
+		margin-top: 0;
+	}
+	@media @mobile {
+		padding: 12px 0;
+
+		h4 {
+			font-size: 10px;
+		}
+	}
+}
+
+
+
+
+// Dual Blocks
+// ------------------------------
+
+.dual-blocks {
+	line-height: 0;
+
+	.section {
+		padding: 0;
+		text-align: left;
+
+		@media @tablet {
+			text-align: center;
+
+			// Reverse layout
+			&--reverse {
+				.flex-display;
+
+				.col:first-child {
+					.order(2);
+				}
+			}
+		}
+	}
+
+
+	// Columns
+	// ----------
+
+	.col {
+		font-size: 0;
+		line-height: 0;
+
+		h5 {
+			padding-bottom: 10px;
+			font-size: 16px;
+			letter-spacing: 1px;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		@media @tablet {
+			background-color: #3b3b3b;
+
+			h2 {
+				color: #fff;
+			}
+			p {
+				color: #b7b7b7;
+			}
+		}
+
+		// Text
+		&--text {
+			.flex-display;
+			.flex-direction(column);
+			.justify-content(center);
+			padding: @value__widget--spacing--tablet 0;
+
+			@media @mobile {
+				padding: @value__widget--spacing--mobile 0;
+			}
+
+			.widget {
+				margin-bottom: 40px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		// Dark
+		&--dark {
+			background-color: #3b3b3b;
+
+			h2 {
+				color: #fff;
+			}
+			h5 {
+				color: #fff;
+			}
+			p {
+				color: #b7b7b7;
+			}
+		}
+	}
+
+	[data-widget-type="image"] {
+		margin: 0;
+	}
+
+	h2 {
+		padding-bottom: 10px;
+		font-size: 20px;
+
+		@media @mobile {
+			padding-bottom: 20px;
+		}
+    }
+	p {
+		.p-sml;
+	}
+
+}
+
+
+
+
+// ------------------------------
+// Careers Page
+// ------------------------------
+
+.section--careers {
+	.container {
+		max-width: 850px;
+	}
+}
+
+// Careers
+.service-list--careers {
+	margin-bottom: @value__widget--spacing--desktop;
+
+    @media @bp-global-medium {
+        margin-bottom: @value__widget--spacing--laptop;
+    }
+    @media @tablet {
+        margin-bottom: @value__widget--spacing--tablet;
+    }
+    @media @mobile {
+        margin-bottom: @value__widget--spacing--mobile;
+    }
+
+	.service-list-item {
+
+		@media @mobile {
+			border-right: 3px solid @color__site--border;
+		}
+
+	    &--first {
+			border-left: 3px solid @color__site--border;
+		}
+		&--middle {
+			@media @mobile {
+				border-left: 3px solid @color__site--border;
+			}
+		}
+		&--last {
+			border-bottom: 0;
+
+			@media @bp-1050 {
+				border-left: 3px solid @color__site--border;
+				border-bottom: 3px solid @color__site--border;
+			}
+			@media @mobile {
+				border-right: 3px solid @color__site--border;
+			}
+		}
+	}
+}
+
+
+
+
+// ------------------------------
+// Case Studies Page
+// ------------------------------
+
+.section--case-studies {
+
+	.widget:nth-child(2) {
+	    margin-bottom: @value__widget--spacing--tablet;
+
+	    @media @mobile {
+	        margin-bottom: @value__widget--spacing--mobile;
+	    }
+	}
+
+	h2 {
+		font-size: 20px;
+		line-height: 40px;
+
+		@media @mobile {
+			font-size: bkscale(@font__h2--font-size, 0.8);
+			line-height: bkscale(@font__h2--line-height, 0.8);
+		}
+	}
+
+	&.section--grey .boxed-content:before {
+		background-color: @color__grey;
+	}
+
+	[data-widget-type="image"] {
+	    margin-bottom: 40px;
+
+	    @media @tablet {
+	        margin-bottom: 10px !important;
+	        transform: scale(.8);
+	    }
+
+	    .image {
+	    	min-width: 210px;
+	    	max-width: 250px;
+	    }
+	}
+
+	[data-widget-type="line"] {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	// Case Study Blurb
+	.case-study-blurb {
+		padding-bottom: @value__widget--spacing--tablet;
+		border-bottom: 2px solid @color__site--border;
+		text-align: center;
+
+	    @media @tablet {
+	        text-align: center;
+	    }
+	    @media @mobile {
+	         padding-bottom: @value__widget--spacing--mobile;
+	    }
+	}
+
+	// Dark Text Sections
+	&.section--dark-text {
+		.case-study-blurb {
+			border-bottom: 2px solid lighten(@color__grey--dark, 7%);
+		}
+		.boxed-content {
+			border: 2px solid lighten(@color__grey--dark, 7%);
+
+			&:before {
+				background-color: @color__grey--dark;
+			}
+		}
+	}
+
+
+	// Results List
+	.row--results-list {
+		padding-top: @value__widget--spacing--desktop;
+		text-align: left;
+
+		@media @bp-global-medium {
+	        padding-top: @value__widget--spacing--laptop;
+	    }
+	    @media @tablet {
+	        padding-top: @value__widget--spacing--tablet;
+	        text-align: center;
+	    }
+	    @media @mobile {
+	        padding-top: @value__widget--spacing--mobile;
+	    }
+
+		.widget {
+			margin: 0;
+		}
+	}
+	.results-list {
+		text-align: left;
+
+		@media @tablet {
+			margin-top: 30px;
+		}
+
+		p:before {
+			display: inline-block;
+			margin-right: 20px;
+			width: 8px;
+			height: 8px;
+			content: "";
+			.border-radius(50%);
+			border: 2px solid @color__primary;
+		}
+	}
+}
+
+#page-zones__template-widgets__line-line1 hr.rule {
+	background-color: #e2e2e2;
+}
