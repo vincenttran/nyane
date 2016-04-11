@@ -29,7 +29,7 @@
         },
         "font2": {
             "font-family": "\"Playfair Display\", Times New Roman, serif",
-            "font-size": "24px",
+            "font-size": "28px",
             "font-weight": "400",
             "line-height": "36px",
             "color": "@color-swatch4",
@@ -37,9 +37,9 @@
         },
         "font3": {
             "font-family": "\"Playfair Display\", Times New Roman, serif",
-            "font-size": "22px",
+            "font-size": "24px",
             "font-weight": "400",
-            "line-height": "42px",
+            "line-height": "32px",
             "color": "@color-swatch4",
             "letter-spacing": "inherit"
         },
@@ -47,15 +47,15 @@
             "font-family": "\"Playfair Display\", Times New Roman, serif",
             "font-size": "20px",
             "font-weight": "400",
-            "line-height": "36px",
+            "line-height": "28px",
             "color": "@color-swatch4",
             "letter-spacing": "inherit"
         },
         "font5": {
             "font-family": "\"Merriweather\", Georgia, serif",
-            "font-size": "18px",
+            "font-size": "14px",
             "font-weight": "400",
-            "line-height": "27px",
+            "line-height": "30px",
             "color": "@color-swatch5",
             "letter-spacing": "inherit"
         },
@@ -146,7 +146,7 @@
             "font__h4--letter-spacing" : "@font-swatch4-letter-spacing",
             "color__h4--text": "#30323e",
             "font__p--font-family" : "@font-swatch5-font-family",
-            "font__p--font-size" : "15px",
+            "font__p--font-size" : "14px",
             "font__p--font-weight" : "400",
             "font__p--line-height" : "30px",
             "font__p--letter-spacing" : "@font-swatch5-letter-spacing",
