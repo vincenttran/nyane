@@ -21,6 +21,9 @@
     .blogpostlist__post-items {
         margin: 0px auto;
         max-width: 75%;
+        @media @bp-global-small {
+            max-width: 100%;
+        }
     }
 }
 
@@ -103,7 +106,7 @@ button:hover, .button:hover {
     padding: 10px 30px;
     background-color: transparent!important;
     max-width: 100%;
-    z-index: 9!important;
+    z-index: 1!important;
     border-bottom: 0 solid transparent!important;
     box-shadow: none!important;
     .logo__logo-image {
@@ -115,24 +118,39 @@ button:hover, .button:hover {
     .socialicons__social-list {
         text-align: center;
     }
-    @media @tablet {
-        position: absolute;
+    .flex-item {
+        width: 50%;
     }
-}
-
-.template-header .flex-item:last-child {
-    text-align: right;
+    .flex-item:last-child {
+        text-align: right;
+        display: flex;
+        -webkit-box-pack: end;
+        -moz-box-pack: end;
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        @media @tablet {
+            width: 100%;
+        }
+    }
+    .flex-item:first-child {
+        text-align: left;
+    }
+    .profile {
+        .social-link:before { 
+            color: black;
+        }
+    }
+    @media @tablet {
+        width: 100%;
+    }
     @media @tablet {
         position: absolute;
         top: 38px;
         right: 20px;
     }
-}
-
-.template-header .flex-item:first-child {
-    text-align: left;
     @media @tablet {
-        width: 100%;
+        position: absolute;
     }
 }
 
@@ -145,21 +163,6 @@ button:hover, .button:hover {
 .template-header .flex-item:first-child,
 .template-header .flex-item:last-child {
         background-color: transparent!important;
-}
-
-.template-header .flex-item:last-child {
-    @media @tablet {
-        width: 100%;
-    }
-}
-
-.template-header .flex-item:last-child {
-    display: flex;
-    -webkit-box-pack: end;
-    -moz-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
 }
 
 .navigation-list--children {
@@ -176,10 +179,6 @@ button:hover, .button:hover {
 
 .flex-item-1 {
     float: left;
-}
-
-.template-header .flex-item {
-    width: 50%;
 }
 
 .navigation-toggle:after, 
@@ -242,6 +241,11 @@ button:hover, .button:hover {
     color: black;
 }
 
+.navigation-item .item-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
 .open .navigation-toggle:before,
 .open .navigation-toggle:after {
     background-color: black;
@@ -253,6 +257,9 @@ button:hover, .button:hover {
 
 .blogpostlist__post-footer {
     margin-top: 20px;
+    @media @tablet {
+        margin-bottom: 0;
+    }
 }
 
 .blogpostlist__title-link {
@@ -288,6 +295,14 @@ button:hover, .button:hover {
 .blogpostlist__title-link {
     font-size: 38px;
     line-height: 44px;
+    @media @bp-global-medium {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    @media @bp-global-small {
+        font-size: 28px;
+        line-height: 34px;
+    }
 }
 
 .blogpostlist__read-more {
@@ -297,10 +312,15 @@ button:hover, .button:hover {
 }
 
 .blogpostlist__post-content {
+    text-align: left;
+    padding: 20px 40px;
     margin-left: -80px;
     @media @tablet {
         margin: 40px;
-        margin-top: -50px;
+        margin-top: -30px;
+    }
+    @media @mobile {
+        padding: 0 20px;
     }
 }
 
@@ -327,10 +347,15 @@ button:hover, .button:hover {
     background-color: white;
     width: 80%;
     margin: -50px auto 0;
-    padding: 20px;
+    padding: 40px;
     -webkit-box-shadow: 10px 10px 12px 6px rgba(0,0,0,0.09);
     -moz-box-shadow: 10px 10px 12px 6px rgba(0,0,0,0.09);
     box-shadow: 10px 10px 12px 6px rgba(0,0,0,0.09);
+    @media @mobile {
+        width: 100%;
+        margin: 0px auto 0;
+        padding: 20px;
+    }
 }
 
 .blogpost__post-footer {
@@ -497,6 +522,12 @@ button:hover, .button:hover {
     }
 }
 
+.blogpostlist__post-footer .timestamp {
+    @media @mobile {
+        padding: 0;
+    }
+}
+
 .blogsearch__form-group:nth-child(1) {
     margin: 0;
 }
@@ -516,4 +547,32 @@ button:hover, .button:hover {
 
 .post-image .image {
     max-height: 100%;
+}
+
+.blogpostlist__post-title {
+    @media @bp-global-medium {
+        font-size: bkscale(@font__h2--font-size, 0.9);
+        line-height: bkscale(@font__h2--line-height, 0.9);
+    }
+
+    @media @bp-global-small {
+        font-size: bkscale(@font__h2--font-size, 0.8);
+        line-height: bkscale(@font__h2--line-height, 0.8);
+    }
+}
+
+::-webkit-input-placeholder {
+   color: @color-swatch4;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: @color-swatch4; 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: @color-swatch4; 
+}
+
+:-ms-input-placeholder {  
+    color: @color-swatch4;
 }

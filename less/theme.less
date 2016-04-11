@@ -70,7 +70,7 @@ body {
 // Main
 .main-content {
     position: relative;
-    z-index: 50;
+    z-index: 2!important;
     background-color: @color__body--background;
 
     @media @bp-global-large {
@@ -147,7 +147,7 @@ body {
 .template-header {
     position: absolute;
     top: 0;
-    z-index: 10002;
+    z-index: 2;
     width: 90%;
     max-width: @value__container--width;
     padding: 30px 70px;
@@ -328,7 +328,7 @@ body {
         background-color: transparent;
 
         &:after, &:before {
-            background: @color__body--background;
+            background: @color-swatch4;
         }
     }
 }
