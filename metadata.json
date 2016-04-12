@@ -4,7 +4,7 @@
     "thumbnail":"thumbnail.png",
     "screenshot":"screenshot.jpg",
     "templateType":"standard",
-    "pageTypes": [ "intro", "home", "blogpostlist", "blogpost", "press", "contact"],
+    "pageTypes": [ "intro", "home", "blogpostlist", "blogpost", "press", "contact", "shop"],
     "colorSwatches":
     {
         "Swatch 1": {
