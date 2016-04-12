@@ -70,7 +70,6 @@ body {
 // Main
 .main-content {
     position: relative;
-    z-index: 4!important;
     padding-top: 40px;
     margin-top: 0;
     background-color: @color__body--background;
@@ -219,7 +218,7 @@ body {
 // For default page and when feature is hidden
 .widget[data-widget-type="feature"].bk-tpl-hidden + .template-header,
 .page--default .template-header {
-    position: relative;
+    position: absolute;
     z-index: inherit;
     width: 100%;
     background-color: @color__body--background;
@@ -229,6 +228,7 @@ body {
 
     // Flex Item
     @media @mobile {
+        position: relative;
         .flex-item:first-child,
         .flex-item:last-child {
             background-color: darken(@color__body--background, 4%);

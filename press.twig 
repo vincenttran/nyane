@@ -8,9 +8,9 @@
     {% include "includes/header.twig" %}
 
     <section>
-        {{widget('image', 'contactpage', {
+        {{widget('image', 'presspage', {
           'src': asset("images/contact-image.jpg"),
-          'title': 'Contact Nyane',
+          'title': 'Press Page Coming Soon',
           'description': '',
           'alt': 'The alternate text',
           'fileName': 'Logo Image',
