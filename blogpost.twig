@@ -2,33 +2,37 @@
 
 {% block content %}
 
-<section class="page  page--default">
+<div class="blogpage">
 
-
-    {% include "includes/header.twig" %}
-
-    <div class="row  row--col-half">
-        <div class="col  col--half">
-            {{widget('pagetitle', 'title', {})|raw}}
+    <section class="page  page--default">
+    
+    
+        {% include "includes/header.twig" %}
+    
+        <div class="row  row--col-half">
+            <div class="col  col--half">
+                {{widget('pagetitle', 'title', {})|raw}}
+            </div>
+            <div class="col  col--half">
+                {{widget('blogsearch', 'blogsearch', {})|raw}}
+            </div>
         </div>
-        <div class="col  col--half">
-            {{widget('blogsearch', 'blogsearch', {})|raw}}
+    
+    
+    
+        <!-- Zone Content -->
+        <div class="main-content">
+            <div class="page-container">
+    
+                {{widget('blogpost', 'singleblogpost', {})|raw}}
+                {{widget('disqus', 'pagecomments', {})|raw}}
+    
+            </div>
         </div>
-    </div>
-
-
-
-    <!-- Zone Content -->
-    <div class="main-content">
-        <div class="page-container">
-
-            {{widget('blogpost', 'singleblogpost', {})|raw}}
-            {{widget('disqus', 'pagecomments', {})|raw}}
-
-        </div>
-    </div>
-
-</section>
+    
+    </section>
+    
+</div>
 
 {% include "includes/footer.twig" %}
 
