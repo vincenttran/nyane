@@ -44,10 +44,6 @@ h1, h2, h3, h4 {
     margin-top: 20px;
 }
 
-.pagetitle {
-    padding: 14px 70px;
-}
-
 .embed__embed-wrap {
     text-align: center;
 }
@@ -542,6 +538,16 @@ button:hover, .button:hover {
     @media @bp-global-small {
         font-size: bkscale(@font__h2--font-size, 0.8);
         line-height: bkscale(@font__h2--line-height, 0.8);
+    }
+}
+
+.blogsearch__form-body,
+.blogsearch__fieldset {
+    @media @tablet {
+        width: 100%!important;
+    }
+    @media @mobile {
+        width: 100%!important;
     }
 }
 

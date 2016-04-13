@@ -73,6 +73,9 @@ body {
     padding-top: 40px;
     margin-top: 0;
     background-color: @color__body--background;
+    @media @tablet {
+        padding-top: 0;
+    }
 }
 
 
@@ -100,7 +103,7 @@ body {
 
 // Page Title
 .pagetitle {
-    padding: 6px 70px;
+    padding: 9px 70px;
     background-color: darken(@color__body--background, 4%);
     border-bottom: 1px solid darken(@color__body--background, 10%);
     text-align: center;
@@ -117,6 +120,10 @@ body {
 .pagetitle-text {
     padding-bottom: 0;
     font-size: 30px;
+    margin-bottom: 0;
+    h1 {
+        margin-bottom: 0;
+    }
 
     @media @mobile {
         font-size: bkscale(@font__h4--font-size, 0.7);
