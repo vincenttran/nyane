@@ -9,13 +9,17 @@
     
         {% include "includes/header.twig" %}
     
-        <div class="row  row--col-half">
+        <div class="page-title-background">
+
+        <div class="row  row--col-half page-title-container">
             <div class="col  col--half">
                 {{widget('pagetitle', 'title', {})|raw}}
             </div>
             <div class="col  col--half">
                 {{widget('blogsearch', 'blogsearch', {})|raw}}
             </div>
+        </div>
+
         </div>
     
     
