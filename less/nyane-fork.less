@@ -2,6 +2,12 @@ h1, h2, h3, h4 {
     margin-bottom: 10px;
 }
 
+.blogpost__tag-link,
+.product__category-link,
+.tweet-content a {
+    color: @color-swatch4!important;
+}
+
 .template-header .container {
     width: 100%;
     margin: 0px auto;
@@ -218,12 +224,6 @@ button:hover, .button:hover {
     font-size: 16px;
 }
 
-.icon--twitter:before, 
-.icon--facebook:before, 
-.icon--googleplus:before {
-    margin-right: 0px;
-}
-
 .page--fullscreen-video .socialicons__social-list {
     text-align: center;
     margin: 20px 0px;
@@ -284,13 +284,12 @@ button:hover, .button:hover {
     color: @color-swatch4;
 }
 
-.blogpostlist .post-article:after {
-    display: none;
-}
-
 .blogpostlist .post-article {
     background-color: white;
     padding: 0;
+    &:after {
+       display: none; 
+    }
 }
 
 .blogpostlist__post-content {
@@ -380,10 +379,9 @@ button:hover, .button:hover {
     .companycopyright__copyright {
         color: white;
     }
-}
-
-.template-footer .widget {
-    padding: 20px 0px;
+    .widget {
+        padding: 20px 0px;
+    }
 }
 
 .imagewidget__caption {
