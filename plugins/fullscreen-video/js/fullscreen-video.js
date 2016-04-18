@@ -5,9 +5,9 @@ $(document).ready(function(){
 
 	// As the video plugin does not work on mobile you can add slideshow images here as a fallback.
 	var slideshowBackgroundURLS = [
-		"{{asset('plugins/fullscreen-video/images/slideshow-1.jpg.jpg')}}",
-		"{{asset('plugins/fullscreen-video/images/slideshow-2.jpg.jpg')}}",
-		"{{asset('plugins/fullscreen-video/images/slideshow-3.jpg.jpg')}}"
+		"{{asset('plugins/fullscreen-video/images/slideshow-1.jpg')}}",
+		"{{asset('plugins/fullscreen-video/images/slideshow-2.jpg')}}",
+		"{{asset('plugins/fullscreen-video/images/slideshow-3.jpg')}}"
 	];
 
 	// Sets fade time for mobile slideshow
