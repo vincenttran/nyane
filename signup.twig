@@ -1,0 +1,40 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="signuppage">
+
+    <section class="page  page--signup">
+    
+    
+    <div class="hero">
+    
+        {{widget('feature', 'feature', {
+            'header': 'profile',
+            'strapline': '',
+            'defaultBgImg': asset('images/feature-image.jpg'),
+            'positionTopPercentage': '0',
+            'showBtn': false,
+            'buttonText': 'Lorem Ipsum'
+        })|raw}}
+    
+    </div>
+    
+    <div class="signupcontainer">
+    
+        <!-- Zone Content -->
+        <div class="main-content">
+            <div class="container">
+    
+                {{zone('main')|raw}}
+    
+            </div>
+        </div>
+    
+    </section>
+
+    </div>
+
+</div>
+
+{% endblock %}
