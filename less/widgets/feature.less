@@ -198,17 +198,22 @@
 
 .feature-arrow {
     position: relative;
-    top: 230px;
+    //top: 230px;
+    top: -100px;
     opacity: .5;
+    z-index: 99999;
 
     @media @bp-global-above-fullwidth {
-        top: 200px;
+        //top: 200px;
+        top: -100px;
     }
     @media @bp-1050 {
-        top: 100px;
+        //top: 100px;
+        top: -100px;
     }
     @media @mobile {
-        display: none;
+        //display: none;
+        top: -100px;
     }
 }
 

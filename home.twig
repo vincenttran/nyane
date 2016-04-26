@@ -29,6 +29,21 @@
                     })|raw}}
                 </div>
 
+                <div class="title">
+                    {{widget('content', 'blogtitle', {
+                    content: '<h1>Newest Blog Posts</h1>'
+                    })|raw}}
+                </div>
+
+                <div class="homepageline">
+                    {{widget('line', 'blogline', {
+                    'thickness': '0',
+                    'length': '10',
+                    'padding': '10',
+                    'align': 'center'
+                    })|raw}}
+                </div>
+
             {{widget('blogpostlist', 'allblogposts', {})|raw}}
 
             </section>
