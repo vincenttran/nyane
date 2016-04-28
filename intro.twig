@@ -1,11 +1,16 @@
 {% extends "layout.twig" %}
 {% block content %}
 
-<div class="page  page--fullscreen-video">
+<div class="page">
 	<div class="site-container">
 
 		<!-- Container for video, used to make video 100% of screen height -->
-		<div class="video-container  full">
+			<video autoplay loop poster class="bg" src="http://static.videezy.com/system/resources/previews/000/000/328/original/bokeh2.mp4">
+			</video>
+
+			<div class="bg-filter">
+
+			</div>
 
 			<!-- Optional content overlay, these can be hidden in the editor or deleted from this file -->
 			<header class="video-heading">
@@ -22,9 +27,6 @@
 
 			</header>
 
-			<!-- This is the video -->
-			<a id="bgndVideo" class="player"></a>
-		</div>
 
 	</div>
 </div>
