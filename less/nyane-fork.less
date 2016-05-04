@@ -2,6 +2,21 @@ video {
     position: absolute;
 }
 
+.mobilevideo {
+    @media @mobile {
+        display: none;
+    }
+}
+
+.intropage {
+    @media @tablet {
+        height: 100vh;
+        background-image: image('/images/mobile-image.jpg');
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
 .linkspace {
     margin-bottom: 20px;
 }
