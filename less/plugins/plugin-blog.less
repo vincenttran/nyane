@@ -92,7 +92,7 @@ hr {
     padding-left: 50%;
     width: 100%;
     @media @tablet {
-        width: initial;
+        width: 100%;
         padding-left: 0;
     }
 }
@@ -270,9 +270,13 @@ hr {
     .post-title {
         font-size: bkscale(@font-swatch2-font-size,0.8);
         line-height: bkscale(@font-swatch2-line-height,0.8);
+        @media @tablet {
+            font-size: 16.4px;
+            line-height: 28.8px;
+        }
         @media @mobile {
-            font-size: bkscale(@font-swatch2-font-size,0.7);
-            line-height: bkscale(@font-swatch2-line-height,0.7);
+            font-size: 16.4px;
+            line-height: 22.8px;
         }
     }
     .post-title .title-link {
