@@ -709,12 +709,18 @@ button:hover, .button:hover {
     background-color: #f5f5f5;
     padding: 20px;
     height: 58px;
+    @media @tablet {
+        height: 38px;
+    }
 }
 
 .blogsearch__button {
     background-color: @color-swatch4;
     color: white;
     padding: 4px 25px;
+    @media @tablet {
+        line-height: 30px!important;
+    }
 }
 
 .blogpost__image {
@@ -809,6 +815,9 @@ button:hover, .button:hover {
 
 .blogpostlistpage .blogpostlist__post-footer .timestamp {
     font-weight: 400 !important;
+    padding: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(150, 150, 150, 0.73);
 }
 
 .main-content {
